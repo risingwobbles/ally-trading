@@ -15,7 +15,7 @@ var config = require('./config');
       null,
       'HMAC-SHA1'
   );
-
+//hi there
 function getTimeSales(symbol, callback)
 {
   var timeSales = {};
