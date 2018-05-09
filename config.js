@@ -1,15 +1,24 @@
 var sp500 = require('./sp500');
 
-var config_object = {
-  budget: 2000,
-  rsi_buy_threshold: 20,
-  rsi_sell_threshold: 80,
+module.exports = {
+
+  // Global Parameters
+
   start_date: '2018-04-01',
+  budget: 10000,
   cooldown: 72,
-  watchlist_10: ['AAPL', 'MSFT', 'AMZN', 'FB', 'BRK.B', 'JPM', 'JNJ', 'XOM', 'GOOG', 'BAC'],
-  watchlist: sp500.getSymbols()
+  // display_analytics: true,
+
+  // RSI Parameters
+
+  rsi_buy_threshold: 25,
+  rsi_sell_threshold: 75,
+  rsi_interval: 5,
+
+  // Stock Watchlist
+
+  // watchlist: ['AAPL']
+  watchlist: ['AAPL', 'MSFT', 'AMZN', 'FB', 'BRK.B', 'JPM', 'JNJ', 'XOM', 'GOOG', 'BAC']
+  // watchlist: sp500.getSymbols()
+
 }
-
-module.exports = config_object;
-
-// console.log(config_object.watchlist);

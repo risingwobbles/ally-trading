@@ -1,5 +1,3 @@
-
-
 var sp500 = [
   {
     "Name": "3M Company",
@@ -2530,18 +2528,13 @@ var sp500 = [
 
 
 
-function getSymbols() {
+exports.getSymbols = function() {
   var symbols = [];
   for (var i = 0; i < sp500.length; i++)
   {
     symbols.push(sp500[i].Symbol);
   }
   return symbols;
-}
-
-exports.getSymbols = function()
-{
-  return getSymbols();
 }
 
 // console.log(getSymbols());
