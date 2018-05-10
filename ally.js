@@ -41,7 +41,6 @@ exports.getTimeSalesFromAPI = function(rawsymbol, callback)
         var price = obj["response"]["quotes"]["quote"][i]["last"];
         timeSales[datetime] = price;
       }
-      console.log(timeSales);
       callback(timeSales);
   });
 }
@@ -215,7 +214,6 @@ function getTimeSalesFromFile(stockSymbol, interval) {
                 intervalTimeSales[i] = timeSales[i];
               }
             }
-            // console.log(intervalTimeSales);
             resolve(intervalTimeSales);
         });
     });

@@ -1,13 +1,15 @@
 var sp500 = require('./sp500');
 
-module.exports = {
+exports_Obj = {
 
   // Global Parameters
 
   start_date: '2018-04-01',
   budget: 10000,
   cooldown: 72,
-  // display_analytics: true,
+  display_trades: true,
+  display_analytics: true,
+  display_adjusted_profits: false,
 
   // RSI Parameters
 
@@ -17,8 +19,10 @@ module.exports = {
 
   // Stock Watchlist
 
-  // watchlist: ['AAPL']
-  watchlist: ['AAPL', 'MSFT', 'AMZN', 'FB', 'BRK.B', 'JPM', 'JNJ', 'XOM', 'GOOG', 'BAC']
+  watchlist: ['AAPL']
+  // watchlist: ['AAPL', 'MSFT', 'AMZN', 'FB', 'BRK.B', 'JPM', 'JNJ', 'XOM', 'GOOG', 'BAC']
   // watchlist: sp500.getSymbols()
 
 }
+
+module.exports = exports_Obj;
