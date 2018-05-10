@@ -19,7 +19,7 @@ exports_Obj = {
 
   // Stock Watchlist
 
-  watchlist: ['TSLA']
+  watchlist: ['AAPL']
   // watchlist: ['AAPL', 'MSFT', 'AMZN', 'FB', 'BRK.B', 'JPM', 'JNJ', 'XOM', 'GOOG', 'BAC']
   // watchlist: sp500.getSymbols()
 
