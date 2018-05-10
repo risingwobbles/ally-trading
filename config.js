@@ -13,8 +13,8 @@ exports_Obj = {
 
   // RSI Parameters
 
-  rsi_buy_threshold: 25,
-  rsi_sell_threshold: 75,
+  rsi_buy_threshold: 20,
+  rsi_sell_threshold: 80,
   rsi_interval: 5,
 
   // Stock Watchlist
