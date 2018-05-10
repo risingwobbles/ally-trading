@@ -10,17 +10,19 @@ var basis = 0;
 var num_trades = 0;
 var portfolio = {};
 
-trade().then(function(roi){
-  // console.log(roi);
-});
+exports.reset = function()
+{
+  debt = 0;
+  basis = 0;
+  num_trades = 0;
+  portfolio = {};
+}
 
-function trade()
+exports.trade = function()
 {
   var promise = new Promise(function(resolve,reject) {
     algorithm.getBatchCalls().then(function(calls) {
-      console.log(" ");
-      console.log(calls);
-      console.log(" ");
+      if (config.display_trades) console.log(" ");
       num_trades = calls.length;
       for (var i = 0; i < calls.length; i++)
       {
@@ -41,7 +43,7 @@ function trade()
           {
             portfolio[symbol] = numshares;
           }
-          console.log("Trade executed: " + numshares + " shares of " + symbol + " were purchased at " + price + " on " + call.date + ".");
+          if (config.display_trades) console.log("Trade executed: " + numshares + " shares of " + symbol + " were purchased at " + price + " on " + call.date + ".");
         }
         if(call.order == 'sell')
         {
@@ -51,7 +53,7 @@ function trade()
             var numshares = parseInt(portfolio[symbol]);
             debt -= price * numshares;
             portfolio[symbol] = 0;
-            console.log("Trade executed: " + numshares + " shares of " + symbol + " were sold at " + price + " on " + call.date + ".");
+            if (config.display_trades) console.log("Trade executed: " + numshares + " shares of " + symbol + " were sold at " + price + " on " + call.date + ".");
           }
         }
       }
@@ -89,9 +91,12 @@ function analytics()
         console.log(" ");
         console.log("Number of trades: " + num_trades);
         console.log("Trading fees: $" + fees);
-        console.log(" ");
-        console.log("Adjusted Profit/Loss: $" + adjprofit);
-        console.log("Adjusted ROI: " + adjroi + "%");
+        if(config.display_adjusted_profits)
+        {
+          console.log(" ");
+          console.log("Adjusted Profit/Loss: $" + adjprofit);
+          console.log("Adjusted ROI: " + adjroi + "%");
+        }
         console.log(" ");
         console.log("Value of holdings: $" + total);
       }
