@@ -35,7 +35,7 @@ function updateSP500() {
   }
 }
 
-function updateSingle(symbol)
+exports.updateSingle = function(symbol)
 {
   var i = 0;
   var start = new Date().getTime();
